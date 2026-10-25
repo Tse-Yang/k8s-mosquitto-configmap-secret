@@ -109,25 +109,11 @@ Define the volumes at the Pod level with `volumes`, then mount them into the con
 `mosquitto.yaml`:
 
 ```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: mosquitto
-  labels:
-    app: mosquitto
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: mosquitto
-  template:
-    metadata:
-      labels:
-        app: mosquitto
+
     spec:
-      containers:
-        - name: mosquitto
-          image: eclipse-mosquitto:2.0
+        containers:
+          - name: mosquitto
+            image: eclipse-mosquitto:2.0
           ports:
             - containerPort: 1883
           volumeMounts:
